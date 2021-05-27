@@ -9,6 +9,7 @@
   "author": "warunsharma.95@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1"
   }
 }
