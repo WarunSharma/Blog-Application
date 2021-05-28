@@ -6,3 +6,11 @@ module.exports.showSignInPage=function(req,res){
 module.exports.showSignUpPage=function(req,res){
     res.render('../views/user_signup');
 };
+
+module.exports.signIn=function(req,res){
+    res.send(`${req.body.email},${req.body.password}`);
+};
+
+module.exports.signUp=function(req,res){
+    res.send(`${req.body.username},${req.body.email},${req.body.password}`);
+}
