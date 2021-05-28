@@ -9,7 +9,23 @@ module.exports.showSignUpPage=function(req,res){
 };
 
 module.exports.signIn=function(req,res){
-    res.send(`${req.body.email},${req.body.password}`);
+    User.findOne({email:req.body.email},(err,user)=>{
+        if(err){
+            console.log(`Error while fetching user data`);
+        }
+
+        if(user){
+            if(user.password==req.body.password){
+                res.send(`${user.username} Login`);
+            }
+            else{
+                res.send(`Invalid password`);
+            }
+        }
+        else{
+            res.send(`Invalid user`);
+        }
+    })
 };
 
 module.exports.signUp=function(req,res){
@@ -21,7 +37,6 @@ module.exports.signUp=function(req,res){
         if(err){
             console.log(`Error while User signup;${err}`);
         }
-        res.send(user);
+        res.send(`${user.username} created`);
     })
-    //res.send(`${req.body.username},${req.body.email},${req.body.password}`);
 }
