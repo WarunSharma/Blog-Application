@@ -11,7 +11,10 @@ module.exports.showSignUpPage=function(req,res){
 module.exports.signIn=function(req,res){
     User.findOne({email:req.body.email},(err,user)=>{
         if(err){
-            console.log(`Error while fetching user data`);
+            res.render('error',{
+                errorSubject:'Error',
+                err:err
+            })
         }
 
         if(user){
@@ -19,11 +22,17 @@ module.exports.signIn=function(req,res){
                 res.send(`${user.username} Login`);
             }
             else{
-                res.send(`Invalid password`);
+                res.render('error',{
+                    errorSubject:'Wrong Password',
+                    err:'Password entered is wrong'
+                })
             }
         }
         else{
-            res.send(`Invalid user`);
+            res.render('error',{
+                errorSubject:'Unregistered mail',
+                err:'Email entered is wrong'
+            })
         }
     })
 };
