@@ -24,14 +24,16 @@ module.exports.signIn=function(req,res){
             else{
                 res.render('error',{
                     errorSubject:'Wrong Password',
-                    err:'Password entered is wrong'
+                    err:'Password entered is wrong',
+                    signin:true
                 })
             }
         }
         else{
             res.render('error',{
                 errorSubject:'Unregistered mail',
-                err:'Email entered is wrong'
+                err:'Email entered is wrong',
+                signin:false
             })
         }
     })
