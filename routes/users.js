@@ -1,5 +1,6 @@
 const express = require('express');
 const userControllers = require('../controllers/users_controller');
+const passport = require('passport');
 
 const router = express.Router();
 
@@ -9,6 +10,12 @@ router.get('/signin',userControllers.showSignInPage);
 
 router.post('/signup',userControllers.signUp);
 
-router.post('/signin',userControllers.signIn);
+//router.post('/signin',userControllers.signIn);
+router.post('/signin',passport.authenticate(
+    'local',
+    {failureRedirect:'/users/signup'},
+),userControllers.signIn);
+
+//router.post('/signin',userControllers.signIn);
 
 module.exports = router;

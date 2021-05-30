@@ -5,38 +5,51 @@ module.exports.showSignInPage=function(req,res){
 };
 
 module.exports.showSignUpPage=function(req,res){
-    res.render('../views/user_signup');
+    if(req.cookies.user)
+        return res.render('success');
+    else    
+        return res.render('../views/user_signup');
 };
 
 module.exports.signIn=function(req,res){
-    User.findOne({email:req.body.email},(err,user)=>{
-        if(err){
-            res.render('error',{
-                errorSubject:'Error',
-                err:err
-            })
-        }
+    console.log('Working');
+    res.render('success');
 
-        if(user){
-            if(user.password==req.body.password){
-                res.send(`${user.username} Login`);
-            }
-            else{
-                res.render('error',{
-                    errorSubject:'Wrong Password',
-                    err:'Password entered is wrong',
-                    signin:true
-                })
-            }
-        }
-        else{
-            res.render('error',{
-                errorSubject:'Unregistered mail',
-                err:'Email entered is wrong',
-                signin:false
-            })
-        }
-    })
+    // if(req.cookies.user)
+    //     return res.render('success');
+    // else{
+    //     User.findOne({email:req.body.email},(err,user)=>{
+    //         if(err){
+    //             res.render('error',{
+    //                 errorSubject:'Error',
+    //                 err:err
+    //             })
+    //         }
+    
+    //         if(user){
+    //             if(user.password==req.body.password){
+    //                 res.cookie('user',user.id);
+    //                 res.send(`${user.username} Login`);
+    
+    //             }
+    //             else{
+    //                 res.render('error',{
+    //                     errorSubject:'Wrong Password',
+    //                     err:'Password entered is wrong',
+    //                     signin:true
+    //                 })
+    //             }
+    //         }
+    //         else{
+    //             res.render('error',{
+    //                 errorSubject:'Unregistered mail',
+    //                 err:'Email entered is wrong',
+    //                 signin:false
+    //             })
+    //         }
+    //     })
+    // }    
+    
 };
 
 module.exports.signUp=function(req,res){
