@@ -7,6 +7,9 @@ const router = express.Router();
 router.get('/signup',userControllers.showSignUpPage);
 
 router.get('/signin',userControllers.showSignInPage);
+router.get('/',passport.checkAuthentication,(req,res)=>{
+    res.render('success');
+})
 
 router.post('/signup',userControllers.signUp);
 

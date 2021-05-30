@@ -12,8 +12,7 @@ module.exports.showSignUpPage=function(req,res){
 };
 
 module.exports.signIn=function(req,res){
-    console.log('Working');
-    res.render('success');
+    res.redirect('/users');
 
     // if(req.cookies.user)
     //     return res.render('success');
