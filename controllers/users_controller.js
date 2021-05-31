@@ -1,13 +1,13 @@
 const User = require('../models/user');
 
 module.exports.showSignInPage=function(req,res){
-    if(res.locals.user)
+    if(req.isAuthenticated())
         return res.redirect('/users');
     res.render('../views/user_signin');
 };
 
 module.exports.showSignUpPage=function(req,res){
-    if(res.locals.user)
+    if(req.isAuthenticated())
         return res.redirect('/users');
     else    
         return res.render('../views/user_signup');
