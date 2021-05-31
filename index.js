@@ -19,7 +19,7 @@ app.set('views','./views')
 app.use(session({
     name:'blogApp',
     secret:'changeLater',
-    saveUninitialized:true,
+    saveUninitialized:false,
     resave:false,
     cookie:{
         maxAge:(1000*60*100)
