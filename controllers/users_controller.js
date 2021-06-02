@@ -65,3 +65,8 @@ module.exports.signUp=function(req,res){
         res.send(`${user.username} created`);
     })
 }
+
+module.exports.signOut=function(req,res){
+    req.logout();
+    res.redirect('/users/signup');
+}
