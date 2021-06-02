@@ -17,8 +17,6 @@ app.use(cookieParser())
 app.set('view engine','ejs')
 app.set('views','./views')
 
-
-
 app.use(session({
     name:'blogApp',
     secret:'changeLater',
