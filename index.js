@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy')
 const MongoStore = require('connect-mongo');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3030;
 
@@ -16,6 +17,7 @@ app.use(cookieParser())
 
 app.set('view engine','ejs')
 app.set('views','./views')
+app.use('/assets',express.static(path.join(__dirname,'assets')));
 
 app.use(session({
     name:'blogApp',

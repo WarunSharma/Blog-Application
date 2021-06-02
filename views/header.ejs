@@ -5,15 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <% if(locals.user) {%>
-            <h1><%=user.username%></h1>
-            <li><a href="/users/signout">Signout</a></li>
-        <%}else{%>
-            <li><a href="/users/signin">SignIn</a></li>
-            <li><a href="/users/signup">SignUp</a></li>
-        <%}%>        
-    </header>
+    <div class="container-sm">
+        <header>
+            <% if(locals.user) {%>
+                <h1><%=user.username%></h1>
+                <li><a href="/users/signout">Signout</a></li>
+            <%}else{%>
+                <li><a href="/users/signin">SignIn</a></li>
+                <li><a href="/users/signup">SignUp</a></li>
+            <%}%>        
+        </header>
+    </div>
+    
