@@ -9,10 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container-sm">
+    <div class="container-sm bg-color">
         <header>
             <% if(locals.user) {%>
-                <h3 class="text-right"><%=user.username%></h3>
+                <h3 class="text-right text-color"><%=user.username%></h3>
                 <li class="text-right"><a href="/users/signout">Signout</a></li>
             <%}else{%>
                 <li><a href="/users/signin">SignIn</a></li>
