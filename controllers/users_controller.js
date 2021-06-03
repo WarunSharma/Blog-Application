@@ -2,19 +2,19 @@ const User = require('../models/user');
 
 module.exports.showSignInPage=function(req,res){
     if(req.isAuthenticated())
-        return res.redirect('/users');
+        return res.redirect('/');
     res.render('../views/user_signin');
 };
 
 module.exports.showSignUpPage=function(req,res){
     if(req.isAuthenticated())
-        return res.redirect('/users');
+        return res.redirect('/');
     else    
         return res.render('../views/user_signup');
 };
 
 module.exports.signIn=function(req,res){
-    res.redirect('/users');
+    res.redirect('/');
 
     // if(req.cookies.user)
     //     return res.render('success');
@@ -68,5 +68,5 @@ module.exports.signUp=function(req,res){
 
 module.exports.signOut=function(req,res){
     req.logout();
-    res.redirect('/users/signup');
+    res.redirect('/users/signin');
 }

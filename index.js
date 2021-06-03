@@ -37,6 +37,10 @@ app.use(passport.setAuthenticatedUser);
 
 app.use('/users',require('./routes/users'));
 
+app.use('/',passport.checkAuthentication,(req,res)=>{
+    res.render('home');
+});
+
 app.listen(PORT,()=>{
     console.log(`Server started at http://localhost:${PORT}`);
 });

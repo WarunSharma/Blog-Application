@@ -12,8 +12,8 @@
     <div class="container-sm">
         <header>
             <% if(locals.user) {%>
-                <h1><%=user.username%></h1>
-                <li><a href="/users/signout">Signout</a></li>
+                <h3 class="text-right"><%=user.username%></h3>
+                <li class="text-right"><a href="/users/signout">Signout</a></li>
             <%}else{%>
                 <li><a href="/users/signin">SignIn</a></li>
                 <li><a href="/users/signup">SignUp</a></li>

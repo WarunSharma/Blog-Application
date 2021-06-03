@@ -8,7 +8,7 @@ router.get('/signup',userControllers.showSignUpPage);
 
 router.get('/signin',userControllers.showSignInPage);
 router.get('/',passport.checkAuthentication,(req,res)=>{
-    res.render('success');
+    res.redirect('/');
 })
 
 router.post('/signup',userControllers.signUp);
