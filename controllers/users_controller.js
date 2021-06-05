@@ -68,5 +68,5 @@ module.exports.signUp=function(req,res){
 
 module.exports.signOut=function(req,res){
     req.logout();
-    res.redirect('/users/signin');
+    res.redirect('/');
 }

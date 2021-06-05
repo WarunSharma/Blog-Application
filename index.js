@@ -17,7 +17,7 @@ app.use(cookieParser())
 
 app.set('view engine','ejs')
 app.set('views','./views')
-app.use('/assets',express.static(path.join(__dirname,'assets')));
+app.use(express.static(path.join(__dirname,'/assets')));
 
 app.use(session({
     name:'blogApp',
@@ -34,7 +34,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
-
+console.log(__dirname);
 app.use('/users',require('./routes/users'));
 
 app.use('/',passport.checkAuthentication,(req,res)=>{
