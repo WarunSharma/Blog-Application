@@ -36,6 +36,7 @@ app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 console.log(__dirname);
 app.use('/users',require('./routes/users'));
+app.use('/posts',require('./routes/posts'))
 
 app.use('/',passport.checkAuthentication,(req,res)=>{
     res.render('home');
